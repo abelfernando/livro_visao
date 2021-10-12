@@ -79,7 +79,7 @@ cv2.imshow("Resultado", imagemProcessada)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 '''
-
+'''
 #Top Hat
 imagemOriginal = cv2.imread("arroz.bmp", 0)
 elementoEstruturante = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (25, 25))
@@ -91,6 +91,18 @@ imagemTratada = cv2.add(imagemProcessada, imagemProcessada)
 cv2.imshow("Original", imagemOriginal)
 cv2.imshow("Resultado", imagemProcessada)
 cv2.imshow("Final", imagemTratada)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+'''
+
+#Remoção de ruído
+imagemOriginal = cv2.imread("engrenagem-binaria.bmp", 0)
+elementoEstruturante = cv2.getStructuringElement(cv2.MORPH_CROSS, (3,3))
+imagemProcessada = cv2.erode(imagemOriginal, elementoEstruturante, iterations = 1)
+
+cv2.imshow("Original", imagemOriginal)
+cv2.imshow("Resultado", imagemProcessada)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
